@@ -1,4 +1,4 @@
 FROM scratch
-MAINTAINER Brandon Philips <brandon.philips@coreos.com>
+MAINTAINER Geoff Levand <geoff@infradead.org>
 ADD rootfs.tar /
 CMD ["/opt/bin/flanneld"]
