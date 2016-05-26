@@ -1,0 +1,23 @@
+Subject: [PATCH v3 0/6] Fixes for go language support
+
+Hi,
+
+This series includes a number of fixup for the go language support.  All the
+buildbot problems pointed out by Thomas [1] should be resolved by this series.
+
+Please consider all patches in this series to apply to master.
+
+[1] http://lists.busybox.net/pipermail/buildroot/2016-April/159336.html
+
+Changes for V3:
+ o Use two step compiler build for all configs.
+
+-Geoff
+
+--------------------------------------------------------------------------------
+[PATCH 0/3] go language enhancements
+
+Patch 3 adds a new package etcd, which does not use cgo support and can be used
+to test builds without BR2_TOOLCHAIN_HAS_THREADS.
+
+-Geoff
