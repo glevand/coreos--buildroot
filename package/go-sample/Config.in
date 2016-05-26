@@ -1,0 +1,5 @@
+config BR2_PACKAGE_GO_SAMPLE
+	bool "go-sample"
+	depends on BR2_PACKAGE_HOST_GO_ARCH_SUPPORTS
+	help
+	  A test go program that does not use cgo.
