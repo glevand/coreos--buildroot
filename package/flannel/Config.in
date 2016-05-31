@@ -2,10 +2,17 @@ comment "flannel needs a toolchain w/ threads"
 	depends on BR2_PACKAGE_HOST_GO_ARCH_SUPPORTS
 	depends on !BR2_TOOLCHAIN_HAS_THREADS
 
+# cgo on ARM requires PIE linkage, which is not compatable with uClibc.
+comment "flannel is not available with uClibc-based toolchain on ARM architecture"
+	depends on BR2_PACKAGE_HOST_GO_ARCH_SUPPORTS
+	depends on BR2_TOOLCHAIN_HAS_THREADS
+	depends on BR2_arm && BR2_TOOLCHAIN_USES_UCLIBC
+
 config BR2_PACKAGE_FLANNEL
 	bool "flannel"
 	depends on BR2_PACKAGE_HOST_GO_ARCH_SUPPORTS
 	depends on BR2_TOOLCHAIN_HAS_THREADS
+	depends on !(BR2_arm && BR2_TOOLCHAIN_USES_UCLIBC)
 	help
 	  Flannel is a virtual network that gives a subnet to each
 	  host for use with container runtimes.
